@@ -2,6 +2,10 @@ import cv2
 import tkinter as tk
 from tkinter import Label, Button, Frame
 from PIL import Image, ImageTk
+import serial
+import time
+
+arduino = serial.Serial(port='COM3',   baudrate=115200, timeout=.1) # Change COM PORT based on laptop
 
 # Initialize tkinter window
 root = tk.Tk()
@@ -32,15 +36,18 @@ fps = 120  # Desired FPS for video playback
 # External functions to handle Start, Stop, and Reset
 def start_video():
     global is_playing
+    arduino.write(b'A')
     is_playing = True
     play_video()  # Begin playing video
 
 def stop_video():
     global is_playing
+    arduino.write(b'B')
     is_playing = False
 
 def reset_video():
     global frame_pos, is_playing
+    arduino.write(b'C')
     is_playing = False
     frame_pos = 0
     cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Reset to first frame
