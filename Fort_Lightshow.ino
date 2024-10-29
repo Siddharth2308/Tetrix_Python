@@ -225,11 +225,11 @@ void loop() {
       if((millis() - run_time > minsToMillis(MARATHE_TIMESTAMP))){
         for (int i = 0; i < NUM_LEDS_ARMY - 23; i++) {
           // Set each LED to a different color (example with random colors)
-          fort_strip.setPixelColor(i, fort_strip.Color(255, 63, 0));
+          fort_strip.setPixelColor(i, army_strip.Color(255, 63, 0));
         }
         for (int i = 36; i < NUM_LEDS_ARMY; i++) {
           // Set each LED to a different color (example with random colors)
-          fort_strip.setPixelColor(i, fort_strip.Color(0, 255, 0));
+          fort_strip.setPixelColor(i, army_strip.Color(0, 255, 0));
         }
       }
 
@@ -237,7 +237,7 @@ void loop() {
       if((millis() - run_time > minsToMillis(MUGHAL_TIMESTAMP))){
         for (int i = 36; i < NUM_LEDS_ARMY; i++) {
           // Set each LED to a different color (example with random colors)
-          fort_strip.setPixelColor(i, fort_strip.Color(0, 255, 0));
+          fort_strip.setPixelColor(i, army_strip.Color(0, 255, 0));
         }
       }
       
